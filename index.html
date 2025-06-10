@@ -163,8 +163,8 @@ var timeBetweenBreaks = 300; // in seconds
 var maxBreakTime = 300; // in seconds 
 
 // text set by the experimenter
-var failuretext = "<h2>Finished!</h2>Unfortunately you made too many errors and the game has ended. Press the <b>SUBMIT HIT</b> button to get credit for the hit.<br>";
-var donetext = "<h2>Finished!</h2>You have finished the task - great job! Press the <b>SUBMIT HIT</b> button to get credit for the hit.<br>";
+var failuretext = "<h2>Finished!</h2>Desafortunadamente has tenido muchos errores y la tarea ha terminado. Press the <b>SUBMIT HIT</b> button to get credit for the hit.<br>";
+var donetext = "<h2>Finished!</h2>Has terminado la tarea, ¡buen trabajo! Press the <b>SUBMIT HIT</b> button to get credit for the hit.<br>";
 
 // global variables that are calculated later based on parameters
 var trialsBetTargets = 30; // in num trials
@@ -667,7 +667,7 @@ link.click();
 <center>
 <h1>Memory Test</h1>
 	<table style="border:1px solid black"><tr>
-	<td style="border:1px solid black"><center><p><span id = "instructions">You will see a stream of images. Press the <b>'r'</b> key any time you see an <b>image</b> you saw before. Press when you see the image and not during the '+'. If you make too many errors, the game will finish. This will take approximately 5 minutes.</span></p></center></td></tr>
+	<td style="border:1px solid black"><center><p><span id = "instructions">You will see a stream of images. Pulsa la tecla <b>'r'</b> siempre que veas una <b>imagen</b> yque haya aparecido previamente. Pulsa solo cuando veas la imagen, no cuando aparezca la cruz de fijación '+'.</span></p></center></td></tr>
 	<tr><td height=450 width=450 style="vertical-align:middle"><center>
 	<span id = "performancerecord">
 	</span>
@@ -675,7 +675,7 @@ link.click();
 	</center></td></tr></table>
 <br>
 <h3><button type = "button" id = "startbutton" onclick = "buttonPress()" autocomplete="off" style="border: 1px solid black; height:70; width:250; border-radius:12px">Click to Start</button></h3><br>
-<p><span id = "consentinfo">By making judgements about these images, you are participating in a study being performed by cognitive scientists in the Blah Blah Lab at Blah Blah University. If you have questions about this research, please contact Dr. Blah at blah@blah.edu. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</span></p>
+<p><span id = "consentinfo"> Este experimento es realizado por el grupo de investigación de MC Martín-Buro de la Universidad Rey Juan Carlos. Sus datos serán tratados de forma totalmente anónima y puede revocar su consentimiento en cualquier momento. </span></p>
 <b>Click here to submit your HIT.</b> Only submit when completed, or you won't get full payment! If you decide to stop halfway, you can click this to end.<br><br>
 <input type = "submit" id="submitbutton" name="Submit HIT" value="Submit HIT">
 </center>
