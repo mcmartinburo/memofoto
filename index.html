@@ -272,8 +272,28 @@ function showFailure(){
 
 // end the game if they make it to the end!
 function showEnding(){
-	document.getElementById("performancerecord").innerHTML = donetext;
-	document.getElementbyId("endingout").value = "completed";
+    document.getElementById("performancerecord").innerHTML = donetext + '<br><button id="downloadBtn">Descargar datos</button>';
+
+    document.getElementById("endingout").value = "completed";
+
+    document.getElementById("downloadBtn").addEventListener("click", function() {
+        var imseq = document.getElementById("imseqout").value;
+        var imtypeseq = document.getElementById("imtypeseqout").value;
+        var perfseq = document.getElementById("perfseqout").value;
+        var ending = document.getElementById("endingout").value;
+
+        var content = `Image Sequence:\n${imseq}\n\nImage Type Sequence:\n${imtypeseq}\n\nPerformance Sequence:\n${perfseq}\n\nEnding:\n${ending}`;
+
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "memory_experiment_results.txt";
+        a.click();
+
+        URL.revokeObjectURL(url);
+    });
 }
 
 // create the memorability-based image sequence
@@ -494,10 +514,45 @@ function countOccurences(array, value){
 	return counter;
 }
 
+// function to download data
+
+function downloadData(filename, data) {
+var blob = new Blob([data], {type: 'text/plain'});
+var url = window.URL.createObjectURL(blob);
+var a = document.createElement('a');
+a.style.display = 'none';
+a.href = url;
+a.download = filename;
+document.body.appendChild(a);
+a.click();
+window.URL.revokeObjectURL(url);
+a.remove();
+}
 
 </script>
 <head>
 <body>
+
+<script>
+function downloadResults() {
+// Recoge los datos de los campos ocultos
+var imseq = document.getElementById("imseqout").value;
+var imtypeseq = document.getElementById("imtypeseqout").value;
+var perfseq = document.getElementById("perfseqout").value;
+var ending = document.getElementById("endingout").value;
+
+// Crea un contenido de texto
+var content = `Image Sequence:\n${imseq}\n\nImage Type Sequence:\n${imtypeseq}\n\nPerformance Sequence:\n${perfseq}\n\nEnding:\n${ending}`;
+
+// Crea un blob y lo descarga
+var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+var link = document.createElement("a");
+link.href = URL.createObjectURL(blob);
+link.download = "memory_experiment_results.txt";
+link.click();
+}
+</script>
+
 
 <style>
   #stimulus {
